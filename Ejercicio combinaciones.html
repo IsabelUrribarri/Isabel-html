@@ -3,11 +3,13 @@
 <head>
     <title>Exercise: Selecting Nested Elements</title>
     <style>
-        div > h1 {
-            border-bottom: 2px solid orange;
+        div.aboutClassSelectors>h1,
+        div#aboutIdSelectors>h1 {
+            border-bottom: 1px solid black;
         }
 
-        div > p {
+        div.aboutClassSelectors>p,
+        div#aboutIdSelectors>p {
             font-style: italic;
         }
     </style>
