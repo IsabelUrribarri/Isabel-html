@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>To do list</title>
+</head>
+
+<body>
+    <h1>To-Dos</h1>
+    <ul>
+        <li><input type="checkbox">Tarea 1 <button>Delete</button>
+        </li>
+        <li><input type="checkbox"><label>Learn CSS</label><button>Delete</button>
+        </li>
+    </ul>
+    <input id="tarea_nueva" type="text" placeholder="Agregar tarea">
+    <button id='agregar'>Agregar</button>
+</body>
+<script>
+    var ul = document.querySelector('ul');
+    var list = document.querySelector('li');
+    var boton_delete = document.querySelector('button');
+    boton_delete.onclick = function () {
+        ul.removeChild(list);
+    }
+    var boton_agregar = document.getElementById('agregar');
+    boton_agregar.onclick = function () {
+        //crear label
+        var label = document.createElement('label');
+        label.innerHTML = 'Tarea 2';
+        //crear boton delete
+        var boton = document.createElement('button');
+        boton.innerHTML = 'Delete'
+        //crear input checkbox
+        var checkbox = document.createElement('input');
+        checkbox.setAttribute('type', 'checkbox');
+        //crear list item
+        var li = document.createElement('li');
+        
+        ul.appendChild(li);
+        var tarea_nueva = document.getElementById('tarea_nueva');
+        console.log(tarea_nueva.getAttribute('value'));
+        //li.innerHTML = tarea_nueva.getAttribute('value');
+        label.innerHTML = 'Tarea 2';
+        li.appendChild(checkbox);
+        li.appendChild(label);
+        li.appendChild(boton);
+
+    }
+
+</script>
+
+</html>
