@@ -27,7 +27,6 @@
     boton_agregar.onclick = function () {
         //crear label
         var label = document.createElement('label');
-        label.innerHTML = 'Tarea 2';
         //crear boton delete
         var boton = document.createElement('button');
         boton.innerHTML = 'Delete'
@@ -39,9 +38,7 @@
         
         ul.appendChild(li);
         var tarea_nueva = document.getElementById('tarea_nueva');
-        console.log(tarea_nueva.getAttribute('value'));
-        //li.innerHTML = tarea_nueva.getAttribute('value');
-        label.innerHTML = 'Tarea 2';
+        label.innerHTML = tarea_nueva.value;
         li.appendChild(checkbox);
         li.appendChild(label);
         li.appendChild(boton);
