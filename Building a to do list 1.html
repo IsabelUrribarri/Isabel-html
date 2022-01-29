@@ -13,7 +13,7 @@
         <li><input type="checkbox"><label>Learn CSS</label><button>Delete</button>
         </li>
     </ul>
-    <input id="tarea_nueva" type="text" placeholder="Agregar tarea">
+    <input id="tarea_nueva" type="text" value="Escriba la tarea nueva" placeholder="Agregar tarea">
     <button id='agregar'>Agregar</button>
 </body>
 <script>
@@ -41,7 +41,7 @@
         var tarea_nueva = document.getElementById('tarea_nueva');
         console.log(tarea_nueva.getAttribute('value'));
         //li.innerHTML = tarea_nueva.getAttribute('value');
-        label.innerHTML = 'Tarea 2';
+        label.innerHTML = tarea_nueva.value;
         li.appendChild(checkbox);
         li.appendChild(label);
         li.appendChild(boton);
