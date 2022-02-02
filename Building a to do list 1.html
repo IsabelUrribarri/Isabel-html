@@ -131,12 +131,15 @@
         checkbox.setAttribute('type', 'checkbox');
         //crear label
         var label = document.createElement('label');
-        label.innerHTML = todo;
         //crear boton delete
         var boton = document.createElement('button');
         boton.innerHTML = 'Delete';
         boton.classList.add('delete');
         var li = document.createElement('li');
+        
+        ul.appendChild(li);
+        var tarea_nueva = document.getElementById('tarea_nueva');
+        label.innerHTML = tarea_nueva.value;
         li.appendChild(checkbox);
         li.appendChild(label);
         li.appendChild(boton);
