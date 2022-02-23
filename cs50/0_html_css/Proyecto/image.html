@@ -1,10 +1,25 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Image search</title>
+        <link rel="stylesheet" href="index.css">
+
 </head>
+
 <body>
-    <a href="index.html">Google search</a>
-    <h1>Image search</h1>
+    <a class="link" href="index.html">Google search</a>
+    <div id="caja">
+        <form action="https://www.google.com/search">
+            <div id="searchbox">
+                <input id="input" type="text" name="q" size="50">
+                <input type="hidden" name="tbm" value="isch">
+            </div>
+            <div id="button">
+                <input id="searchbutton" type="submit" value="Image Search">
+            </div>
+        </form>
+    </div>
 </body>
+
 </html>

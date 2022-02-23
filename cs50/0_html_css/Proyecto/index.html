@@ -3,15 +3,23 @@
 
 <head>
     <title>Search</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
-    <a href="image.html">Image search</a>
-    <a href="advanced.html">Advanced search</a>
-    <form action="https://www.google.com/search">
-        <input type="text" name="q">
-        <input type="submit" value="Google Search">
-    </form>
+    <a class="link" href="image.html">Image search</a>
+    <a class="link" href="advanced.html">Advanced search</a>
+    <div id="caja">
+        <form action="https://www.google.com/search">
+            <div id="searchbox">
+                <input id="input" type="text" name="q" size="50">
+            </div>
+            <div class="button">
+                <input class="searchbutton" type="submit" value="Google Search">
+                <input class="searchbutton" type="submit" value="I’m Feeling Lucky">
+            </div>
+        </form>
+    </div>
 </body>
 
 </html>
