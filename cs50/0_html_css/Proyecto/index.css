@@ -30,7 +30,7 @@
     height: 30px;
 }
 
-.button {
+#button {
    /* display: inline-block; */
     margin: auto;
     border: none;
@@ -55,10 +55,11 @@
  #buttonsearch {
     color: white;
     background-color: cornflowerblue;
-    margin-left: 350px;
+    margin-left: 66%;
     margin-top: 3px;
  }
 
 .ancho {
     width: 200px;
 }
+

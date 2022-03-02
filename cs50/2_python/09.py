@@ -7,3 +7,8 @@ people = [
 people.sort(key=lambda person:person["house"])
 
 print(people)
+
+nombres = ["maria", "carlos", "jose", "karla", "pedro"]
+
+nombres.sort
+print(nombres)
