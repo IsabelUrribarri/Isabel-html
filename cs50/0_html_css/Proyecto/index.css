@@ -18,6 +18,9 @@
   font-family: Arial, Helvetica, sans-serif;
 } 
 
+.searchbutton:hover, #buttonsearch:hover {cursor: pointer;}
+
+
 #searchbox {
     text-align: center;
     padding: 10px;
