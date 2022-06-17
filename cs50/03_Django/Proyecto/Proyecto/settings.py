@@ -34,6 +34,8 @@ INSTALLED_APPS = [
     'myapp',
     'newyear',
     'tasks',
+    'singlepage',
+    'infinitescroll',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

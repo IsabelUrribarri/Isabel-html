@@ -10,7 +10,11 @@ python manage.py startapp APP_NAME
 
 python manage.py runserver
 
-4) Estructura de la aplicacion 
+4)Como correr los test de una aplicacion (flight)
+
+python manage.py test
+
+5) Estructura de la aplicacion 
 
 - Se crea un proyecto, el proyecto tiene urls.
 - Dentro del proyecto se crean aplicaciones, cada aplicacion tiene su url. Por ejemplo: Proyecto/App para la url de la aplicacion(app) es "".
