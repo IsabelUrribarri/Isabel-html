@@ -1,18 +1,13 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+from django import forms
 
 from . import util
 
 
 def index(request):
-    return HttpResponse('Hola, este es el index')
-
-def entrada(request, name):
-    return render(request, "encyclopedia/entrada.html", {
-        "entrada": util.get_entry(name)
-    })
-
-def new_page(request):
     if request.method == "POST":
        title = request.POST.get("q")
        entries = util.list_entries()
@@ -33,3 +28,16 @@ def new_page(request):
         return render(request, "encyclopedia/index.html", {
             "entries": util.list_entries()
          })
+
+
+def entrada(request, name):
+    return render(request, "encyclopedia/entrada.html", {
+        "entrada": util.get_entry(name)
+    })
+
+def newpage(request):
+     return render(request, "encyclopedia/newpage.html", {
+    })
+
+def randompage(request):
+    return HttpResponse("Hola")
