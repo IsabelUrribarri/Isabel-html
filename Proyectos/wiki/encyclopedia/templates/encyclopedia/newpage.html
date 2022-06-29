@@ -1,9 +1,32 @@
 {% extends "encyclopedia/layout.html" %}
 
 {% block title %}
-    New entry
+New entry
 {% endblock %}
 
 {% block body %}
-    <h1>New entry</h1>
+<h1>New entry</h1>
+<form action="{% url 'newpage' %}" method="post">
+    {% csrf_token %}
+    <div class="form-row">
+        <div class="col-2">
+            <br/>
+            <label for="exampleFormControlInput1">Title</label>
+            <input type="text" class="form-control" name="title">
+            <br/>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-6">
+            <label for="exampleFormControlTextarea1">Description</label>
+            <textarea class="form-control" name="description" rows="6"></textarea>
+            <br/>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-2">
+            <input type="submit" value="save">
+        </div>
+    </div>
+</form>
 {% endblock %}

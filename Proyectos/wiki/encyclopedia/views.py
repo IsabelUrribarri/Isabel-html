@@ -1,3 +1,4 @@
+from turtle import title
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
@@ -36,7 +37,14 @@ def entrada(request, name):
     })
 
 def newpage(request):
-     return render(request, "encyclopedia/newpage.html", {
+    if request.method == "POST":
+        data = request.POST.dict()
+        title = data.get('title')
+        description = data.get('description')
+        util.save_entry(title, description)
+        return HttpResponseRedirect(reverse("newpage"))
+    else: 
+        return render(request, "encyclopedia/newpage.html", {
     })
 
 def randompage(request):
