@@ -5,7 +5,11 @@
 {% endblock %}
 
 {% block body %}
-
-    <p>{{ entrada |safe }}</p>
+    {% if entrada %}
+        <a href="{% url 'editpage' title %}">Edit</a>
+        <p>{{ entrada |safe }}</p>
+    {% else %}
+        <h1>Requested page was not found</h1>
+    {% endif %}
 
 {% endblock %}

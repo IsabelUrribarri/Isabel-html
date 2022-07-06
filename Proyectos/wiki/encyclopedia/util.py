@@ -36,5 +36,5 @@ def get_entry(title):
         return markdowner.convert(f.read().decode("utf-8"))
     except FileNotFoundError:
         markdowner = Markdown()
-        return markdowner.convert(f"La entrada {title.upper()} no existe")
-        #return None
+        #return markdowner.convert(f"La entrada {title.upper()} no existe")
+        return None
