@@ -4,7 +4,9 @@ from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django import forms
-
+from markdown2 import Markdown
+import html2markdown
+import random
 from . import util
 
 
@@ -48,8 +50,6 @@ def newpage(request):
                 util.save_entry(title, description)
             else:
                 return HttpResponse("This entry already exists")
-        # else:
-        #  return HttpResponse("You must include a title")
 
         return render(request, "encyclopedia/newpage.html", {
         })
@@ -59,8 +59,24 @@ def newpage(request):
 
 
 def randompage(request):
-    return HttpResponse("Hola")
-
+    entries = util.list_entries()
+    entry = random.choice(entries)
+    return render(request, "encyclopedia/entrada.html", {
+        "entrada": util.get_entry(entry),
+        "title": entry.capitalize()
+    })
 
 def editpage(request,entry):
-    return HttpResponse("Edit page")
+    if request.method == "POST":
+        data = request.POST.dict()
+        description = data.get('description')
+        util.save_entry(entry, description)
+        return render(request, "encyclopedia/entrada.html", {
+        "entrada": util.get_entry(entry),
+        "title": entry.capitalize()
+    })
+    else: 
+        return render(request, "encyclopedia/editpage.html", {
+            "entry": entry,
+            "description": html2markdown.convert(util.get_entry(entry))
+        })

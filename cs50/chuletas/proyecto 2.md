@@ -36,3 +36,11 @@ def new_entry(request):
         <input type="submit" value="Save">                    
     </form>
 {% endblock %}
+
+The project needs the library 
+
+pip install html2markdown
+
+https://pypi.org/project/html2markdown/
+
+for edit entries in markdown format

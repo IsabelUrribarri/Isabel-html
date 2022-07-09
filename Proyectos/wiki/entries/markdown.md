@@ -1,3 +1,0 @@
-# titulo
-## subtitulo
-~ otro formato ~
