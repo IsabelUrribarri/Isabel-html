@@ -1,0 +1,41 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+New entry
+{% endblock %}
+
+{% block script %}
+
+{% endblock %}
+
+{% block body %}
+{% if error %}
+<h1>{{ message }}</h1>
+{% else %}
+<h1>New entry</h1>
+<form action="{% url 'newpage' %}" method="post">
+    {% csrf_token %}
+    <div class="form-row">
+        <div class="col-2">
+            <br />
+            <label for="exampleFormControlInput1">Title</label>
+            <input type="text" class="form-control" name="title" id="title">
+            <br />
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-6">
+            <label for="exampleFormControlTextarea1">Description</label>
+            <textarea name="description"></textarea>
+            <br />
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-2">
+            <input type="submit" value="save">
+        </div>
+    </div>
+</form>
+{% endif %}
+
+{% endblock %}

@@ -1,3 +1,4 @@
+from email import message
 from turtle import title
 from django.shortcuts import render
 from django.http import HttpResponse
@@ -23,7 +24,8 @@ def index(request):
                     "entrada": util.get_entry(title)
                 })
         return render(request, "encyclopedia/index.html", {
-            "entries": new_entries
+            "entries": new_entries,
+            "search" : True
         })
 
     else:
@@ -40,6 +42,8 @@ def entrada(request, name):
 
 
 def newpage(request):
+    error = False
+    message = ""
     if request.method == "POST":
         data = request.POST.dict()
         title = data.get('title')
@@ -49,13 +53,16 @@ def newpage(request):
             if util.get_entry(title) is None:
                 util.save_entry(title, description)
             else:
-                return HttpResponse("This entry already exists")
+                error = True
+                message = "This entry already exists"
+        else:
+            error = True
+            message = "You must write a title"
 
-        return render(request, "encyclopedia/newpage.html", {
-        })
-    else:
-        return render(request, "encyclopedia/newpage.html", {
-        })
+    return render(request, "encyclopedia/newpage.html", {
+        "error": error,
+        "message": message
+    })
 
 
 def randompage(request):
