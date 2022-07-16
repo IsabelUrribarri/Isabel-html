@@ -17,16 +17,26 @@ def index(request):
         entries = util.list_entries()
         new_entries = []
         for entry in entries:
-            if title.upper() in entry.upper():
-                new_entries.append(entry)
             if entry.upper() == title.upper():
                 return render(request, "encyclopedia/entrada.html", {
+                    "title" : title.upper(),
                     "entrada": util.get_entry(title)
                 })
-        return render(request, "encyclopedia/index.html", {
-            "entries": new_entries,
-            "search" : True
+            if title.upper() in entry.upper():
+                new_entries.append(entry)
+        if new_entries :
+            return render(request, "encyclopedia/index.html", {
+                "entries": new_entries,
+                "search" : True,
+                "results": True
+            })
+        else:
+            return render(request, "encyclopedia/index.html", {
+                "results": False,
+                "search" : True,
+                "entries": None
         })
+
 
     else:
         return render(request, "encyclopedia/index.html", {
